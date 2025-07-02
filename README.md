@@ -54,10 +54,10 @@ This project implements a comprehensive inventory management system using FastAP
 4. **Set up environment variables**
    Create a `.env` file in the root directory with the following variables:
    ```env
-   DATABASE_URL=postgresql://user:password@localhost/inventory_db
-   SECRET_KEY=your-secret-key-here
-   ALGORITHM=HS256
-   ACCESS_TOKEN_EXPIRE_MINUTES=30
+   DATABASE_URL=
+   SECRET_KEY=
+   ALGORITHM=
+   ACCESS_TOKEN_EXPIRE_MINUTES=
    ```
 
 5. **Run database migrations**
