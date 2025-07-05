@@ -1,4 +1,4 @@
-from fastapi import fastapi
+from fastapi import FastAPI
 
 app = FastAPI(
     title="Management Inventory API",

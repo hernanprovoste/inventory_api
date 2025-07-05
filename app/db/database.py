@@ -13,6 +13,12 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Create base class
 Base = declarative_base()
 
+# Modelos importados
+from app.models.user import User
+from app.models.category import Category
+from app.models.product import Product
+from app.models.stock_movement import StockMovement
+
 # Dependency to get database session
 def get_db():
     db = SessionLocal()
