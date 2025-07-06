@@ -1,10 +1,15 @@
 from fastapi import FastAPI
+from app.core.config import get_settings
+from app.api.endpoints import category # Se importa el router de las categorias
 
 app = FastAPI(
     title="Management Inventory API",
     description="API for managing inventory, with product, category, stocks and users",
     version="0.1.0"
 )
+
+# Incluir router
+app.include_router(category.router)
 
 @app.get("/")
 async def read_root():
