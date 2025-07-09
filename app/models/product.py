@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql import func
 
 from app.db.database import Base
 
@@ -13,6 +14,9 @@ class Product(Base):
     stock_quantity = Column(Integer, default=0)
 
     category_id = Column(Integer, ForeignKey("categories.id"))
+
+    created_at = Column(DateTime, server_default=func.now(), nullable=False)
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
 
     # Relacion para vincular productos con categorias
     category = relationship("Category", back_populates="products")

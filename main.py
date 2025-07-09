@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import get_settings
-from app.api.endpoints import category # Se importa el router de las categorias
+from app.api.endpoints import category, product # Se importa el router de las categorias
 
 app = FastAPI(
     title="Management Inventory API",
@@ -10,7 +10,7 @@ app = FastAPI(
 
 # Incluir router
 app.include_router(category.router)
-
+app.include_router(product.router)
 @app.get("/")
 async def read_root():
     return {"message": "Welcome to the Management Inventory API"}
