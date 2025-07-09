@@ -11,6 +11,12 @@ psycopg2-binary = "*"
 sqlalchemy = "*"
 alembic = "*"
 python-dotenv = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
+python-jose = {extras = ["cryptography"], version = "*"}
+pydantic = {extras = ["email"], version = "*"}
+python-multipart = "*"
+pytest = "*"
+httpx = "*"
 
 [dev-packages]
 

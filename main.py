@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from app.core.config import get_settings
-from app.api.endpoints import category, product, stock_movement# Se importa el router de las categorias
+from app.api.endpoints import category, product, stock_movement, auth # Se importa el router de las categorias
 
 app = FastAPI(
     title="Management Inventory API",
@@ -9,6 +8,7 @@ app = FastAPI(
 )
 
 # Incluir router
+app.include_router(auth.router)
 app.include_router(category.router)
 app.include_router(product.router)
 app.include_router(stock_movement.router)
