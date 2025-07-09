@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional
 
 # Esquema base para crear una nueva categoria
@@ -21,4 +21,4 @@ class Category(CategoryBase):
     id: int
 
     class Config:
-        from_attributes = True # Esto permite que los campos de la base de datos se mapeen a los campos de la clase
+        model_config = ConfigDict(from_attributes = True) # Change because it will deprecated in Pydantic V3

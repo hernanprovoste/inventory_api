@@ -7,7 +7,9 @@ from app.core.config import get_settings
 settings = get_settings()
 
 # Create engine and session maker
-engine = create_engine(settings.DATABASE_URL, echo=True)
+# Update logic to use producction database or testing database
+DATABASE_URL_TO_USE = settings.DATABASE_URL_TEST if settings.TEST_DATABASE_URL else settings.DATABASE_URL
+engine = create_engine(DATABASE_URL_TO_USE, echo=False) # Change echo to True in prod
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Create base class
