@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import Response
 from sqlalchemy.orm import Session
 from typing import List
 
@@ -61,4 +62,4 @@ def delete_existing_category(category_id: int, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Category not found to delete."
         )
-    return {"message": "Category deleted successfully"}
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

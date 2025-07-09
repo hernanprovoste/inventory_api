@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi.responses import Response
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
@@ -98,4 +99,4 @@ def delete_existing_product(product_id: int, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Product not found to delete."
         )
-    return {"message": "Product deleted successfully"}
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
